@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login
 from .forms import LoginForm
@@ -7,7 +7,7 @@ from .forms import LoginForm
 
 # Create your views here.
 
-def user_login(request):
+def user_login(request:HttpRequest):
     #login validation
     if request.method == "POST":
         form = LoginForm(request.POST)
