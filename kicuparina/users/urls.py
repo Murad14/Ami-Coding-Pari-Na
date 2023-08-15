@@ -1,12 +1,13 @@
-from re import template
 from django.urls import path
+from knox import views as knox_views
 from .import views
-from django.contrib.auth import views as auth_view
 
 
 urlpatterns = [
-    path('login/', views.user_login, name='login'),  # type: ignore
-    path('logout/', auth_view.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('login/', views.login_api, name='login'),
+    path('user/', views.get_user_data, name='user'),
+    path('register/', views.register_api, name='register'),
+    path('logout/', knox_views.LogoutView.as_view()),
+    path('logoutall/', knox_views.LogoutAllView.as_view())
 
-    path('register/', views.register, name='register'),  # type: ignore
 ]

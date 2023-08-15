@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users', #added my projectapp
-    
-    #third-party-apps
+    'users',  # added my projectapp
+
+    # third-party-apps
     'rest_framework',
+    'knox',
 ]
 
 MIDDLEWARE = [
@@ -125,5 +126,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
