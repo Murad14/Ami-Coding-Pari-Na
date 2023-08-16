@@ -17,8 +17,18 @@ class RegisterSerializer(serializers.ModelSerializer):
                         User.objects.all(), "A user with that Email already exists"
                     )
                 ]
+            },
+            "username": {
+                "required": True,
+                "allow_blank": False,
+                "validators": [
+                    validators.UniqueValidator(
+                        User.objects.all(), "A user with that Username already exists"
+                    )
+                ]
             }
         }
+        
 
     def create(self, validated_data):
         username = validated_data.get('username')
