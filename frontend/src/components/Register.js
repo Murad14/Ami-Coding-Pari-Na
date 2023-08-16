@@ -31,7 +31,7 @@ const Register = () => {
             <div className="offset-lg-3 col-lg-6">
                 <form className="container" onSubmit={handlesubmit}>
                     <div className="card">
-                        <div className="card-header">
+                        <div className="card-header text-center">
                             <h1>User Registration</h1>
                         </div>
                         <div className="card-body">

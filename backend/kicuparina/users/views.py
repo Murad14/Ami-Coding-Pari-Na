@@ -56,6 +56,7 @@ def register_api(request):
             },
             'token': token
         })
+    
     else:
         print(serializer.errors)  # Print validation errors
-        return Response(serializer.errors, status=400)
+        return Response(serializer.errors, status=400)  
