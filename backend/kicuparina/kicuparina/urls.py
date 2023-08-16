@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # this include will indicate 'users/urls.py'
     path('api/', include('users.urls')),
+    # this include will indicate 'khojproject/urls.py'
+    path('api/', include('khojproject.urls')),
 ]
