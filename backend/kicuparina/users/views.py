@@ -10,8 +10,12 @@ from .serializers import RegisterSerializer
 @api_view(['POST'])
 def login_api(request):
     serializer = AuthTokenSerializer(data=request.data)
-    serializer.is_valid(raise_exception=True)
-    user = serializer.validated_data['user']  # type: ignore
+    
+    if not serializer.is_valid():
+        print(serializer.errors)  # Print validation errors
+        return Response(serializer.errors, status=400)
+    
+    user = serializer.validated_data['user']
     _, token = AuthToken.objects.create(user)
 
     return Response({

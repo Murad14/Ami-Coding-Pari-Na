@@ -18,6 +18,8 @@ const Login = () => {
                     username: username,
                     password: password
                 });
+                const token = response.data.token;
+                localStorage.setItem("token", token); // Set token in localStorage
                 console.log('Login successful:', response.data);
 
                 // Redirect to Khoj.js route upon successful login
