@@ -1,5 +1,5 @@
 from rest_framework.views import APIView
-from django.contrib.auth.mixins import LoginRequiredMixin
+#from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework.response import Response
 from rest_framework import status
 from .models import InputValue
@@ -10,7 +10,7 @@ from dateutil.parser import parse
 
 
 
-class KhojSearchView(LoginRequiredMixin,APIView):
+class KhojSearchView(APIView):
     def post(self, request, format=None):
         input_values = request.data.get('input_values')  # Comma-separated integers
         search_value = request.data.get('search_value')  # Single integer
@@ -26,7 +26,7 @@ class KhojSearchView(LoginRequiredMixin,APIView):
         return Response({'result': search_result}, status=status.HTTP_200_OK)
 
 
-class GetAllInputValuesView(LoginRequiredMixin,APIView):
+class GetAllInputValuesView(APIView):
     def get(self, request, format=None):
         start_datetime_str = request.query_params.get('start_datetime')
         end_datetime_str = request.query_params.get('end_datetime')
