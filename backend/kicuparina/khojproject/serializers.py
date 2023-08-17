@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import InputValue
 
-class InputValueSerializer(serializers.ModelSerializer):
+class InputDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = InputValue
-        fields = '__all__'
+        fields = ['timestamp', 'input_values']

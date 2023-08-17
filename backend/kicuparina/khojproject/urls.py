@@ -1,9 +1,7 @@
 from django.urls import path
-
-from .views import InputValueListCreateView, SearchView
+from .views import KhojSearchView, GetAllInputValuesView
 
 urlpatterns = [
-    path('input-values/', InputValueListCreateView.as_view(), name='input-values'),
-    path('search/', SearchView.as_view(), name='search'),
+    path('khoj-search/', KhojSearchView.as_view(), name='khoj-search'),
+    path('get-all-input-values/', GetAllInputValuesView.as_view(), name='get-all-input-values'),
 ]
-
